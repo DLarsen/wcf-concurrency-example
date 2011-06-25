@@ -11,24 +11,14 @@ namespace ServiceContract
 
     public static void WriteLine(string message)
     {
-      WriteLine(message, null, ConsoleColor.White);
+      WriteLine(message, ConsoleColor.White);
     }
 
     public static void WriteLine(string message, ConsoleColor color)
     {
-      WriteLine(message, null, color);
-    }
-
-    public static void WriteLine(string message, Stopwatch sw, ConsoleColor color)
-    {
       Console.ForegroundColor = color;
 
-      if (sw != null && sw.IsRunning)
-      {
-        message = string.Format("{0} (Seconds elapsed until reached: {1})", message, sw.Elapsed.Seconds);
-      }
-
-      Console.WriteLine(message);
+      Console.WriteLine("{1:HH:mm:ss} {0}", message, DateTime.Now);
     }
   }
 }

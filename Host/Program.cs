@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ServiceContract;
+using System.ServiceModel;
 
 namespace Host
 {
@@ -13,12 +14,24 @@ namespace Host
       Helpers.WriteLine("----- WCF Service Host -----", ConsoleColor.Yellow);
       Helpers.WriteLine("");
 
-      SampleService s = new SampleService();
-      s.ShortOneWay("init");
-      s.LongOneWay("init");
-      s.ShortOneWay("init");
-
+      ServiceHost hostDefault = new ServiceHost(typeof(SampleService));
+      ServiceManager.OpenHost(hostDefault);
       Helpers.WriteLine("Services are running.");
+      
+      var proxy = ServiceManager.CreateChannel(hostDefault);
+      
+      // call the local proxy
+      var msg = "Called from Host";
+      proxy.ShortOneWay(msg);
+      proxy.LongOneWay(msg);
+      proxy.ShortOneWay(msg);
+      proxy.LongOneWay(msg);
+
+      proxy.Short(msg);
+      proxy.Long(msg);
+      proxy.Short(msg);
+      proxy.Long(msg);
+      
       Helpers.WriteLine("");
 
       Helpers.WriteLine("Press 'Enter' to shut down the services.\r\n", ConsoleColor.White);

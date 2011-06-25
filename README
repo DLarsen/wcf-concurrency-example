@@ -1,3 +1,3 @@
 This project demonstrates how to do non-bloocking One-Way calls over NetTcpBinding.
 
-Note: It doesn't work yet.
+Note: The project structure does not represent any kind of best practices.  Instead it aims to keep the project simple.

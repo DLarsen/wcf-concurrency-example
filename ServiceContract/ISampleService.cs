@@ -6,18 +6,20 @@ using System.ServiceModel;
 
 namespace ServiceContract
 {
-    [ServiceContract]
-    public interface ISampleService
-    {
-        [OperationContract(IsOneWay = true)]
-        void ShortOneWay(string msg);
+  [ServiceContract]
+  public interface ISampleService
+  {
+    [OperationContract(IsOneWay = true)]
+    void ShortOneWay(string msg);
 
-        [OperationContract(IsOneWay = true)]
-        void LongOneWay(string msg);
+    [OperationContract(IsOneWay = true)]
+    void LongOneWay(string msg);
 
-        void Short(string msg);
+    [OperationContract]
+    void Short(string msg);
 
-        void Long(string msg);    
+    [OperationContract]
+    void Long(string msg);
 
-    }
+  }
 }
