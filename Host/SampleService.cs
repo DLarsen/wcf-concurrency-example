@@ -9,11 +9,16 @@ using System.ServiceModel;
 namespace Host
 {
   [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
+  class ConcurrentSampleService : SampleService
+  {
+  }
+
+  [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode= InstanceContextMode.Single)]
   class SampleService : ISampleService
   {
     // number of times service call has been made
-    static int counter = 1;
-
+    int counter = 1;
+    static object ilock = new object();
     
 
     public void ShortOneWay(string msg)
@@ -23,10 +28,13 @@ namespace Host
 
     public void LongOneWay(string msg)
     {
-      int callNum = counter++;
-      Helpers.WriteLine(String.Format("Start Call {0} - LongOneWay: {1}", callNum, msg));
-      Thread.Sleep(5000);
-      Helpers.WriteLine(String.Format("  End Call {0} - Long: {1}", callNum, msg));
+      lock (ilock)
+      {
+        int callNum = counter++;
+        Helpers.WriteLine(String.Format("Start Call {0} - LongOneWay: {1}", callNum, msg));
+        Thread.Sleep(5000);
+        Helpers.WriteLine(String.Format("  End Call {0} - Long: {1}", callNum, msg));
+      }
     }
 
     public void Short(string msg)

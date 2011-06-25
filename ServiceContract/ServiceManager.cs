@@ -10,11 +10,12 @@ namespace ServiceContract
 {
   public class ServiceManager
   {
-    public static ISampleService CreateChannel(ServiceHost hostDefault){
+    public static ISampleService CreateChannel(string address_suffix)
+    {
 
 
       Binding binding = CreateBinding();
-      string address = GetAddress();
+      string address = GetAddress() + address_suffix;
       Helpers.WriteLine(String.Format("Starting service at endpoint {0}", address), ConsoleColor.Cyan);
 
       var factory = new ChannelFactory<ISampleService>(binding);
@@ -23,10 +24,10 @@ namespace ServiceContract
       return factory.CreateChannel(ep);
     }
 
-    public static void OpenHost(ServiceHost hostDefault)
+    public static void OpenHost(ServiceHost hostDefault, string address_suffix)
     {
       Binding binding = CreateBinding();
-      string address = GetAddress();
+      string address = GetAddress() + address_suffix;
 
       hostDefault.AddServiceEndpoint(
         typeof(ISampleService),
