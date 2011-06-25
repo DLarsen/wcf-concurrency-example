@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContract", "ServiceContract\ServiceContract.csproj", "{FC1B669B-9B6B-4D80-84FE-3078C7E7D65B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{DBFB7F4B-9D40-4F10-B126-E98D2583CB78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC1B669B-9B6B-4D80-84FE-3078C7E7D65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1B669B-9B6B-4D80-84FE-3078C7E7D65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1B669B-9B6B-4D80-84FE-3078C7E7D65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1B669B-9B6B-4D80-84FE-3078C7E7D65B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFB7F4B-9D40-4F10-B126-E98D2583CB78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFB7F4B-9D40-4F10-B126-E98D2583CB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFB7F4B-9D40-4F10-B126-E98D2583CB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFB7F4B-9D40-4F10-B126-E98D2583CB78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
