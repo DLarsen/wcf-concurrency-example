@@ -19,21 +19,6 @@ namespace Host
       ServiceManager.OpenHost(singleHost, "-single");
       ServiceManager.OpenHost(concurrentHost, "-concurrent");
       Helpers.WriteLine("Services are running.");
-      
-      // call the local proxy
-      /*
-      var proxy = ServiceManager.CreateChannel();
-      var msg = "Called from Host";
-      proxy.ShortOneWay(msg);
-      proxy.LongOneWay(msg);
-      proxy.ShortOneWay(msg);
-      proxy.LongOneWay(msg);
-
-      proxy.Short(msg);
-      proxy.Long(msg);
-      proxy.Short(msg);
-      proxy.Long(msg);
-       * */
 
       Helpers.WriteLine("");
 
